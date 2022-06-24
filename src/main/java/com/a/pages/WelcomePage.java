@@ -22,8 +22,6 @@ public class WelcomePage {
     @Autowired
     private WebDriver driver;
 
-    @FindBy(xpath = "//button[text()='Only Allow Essential Cookies']")
-    public WebElement cookies1;
 
     private By cookies = By.xpath("//button[text()='Only Allow Essential Cookies']");
     private By username = By.name("username");
@@ -32,11 +30,7 @@ public class WelcomePage {
 
     private By btn = By.xpath("//div[text()='Log In']");
 
-    public WelcomePage(){
-        PageFactory.initElements(driver, this);
-    }
     public void enteremail() throws InterruptedException {
-        cookies1.click();
         driver.findElement(cookies).click();
         sleep(2000);
         driver.findElement(username).sendKeys("your username");
